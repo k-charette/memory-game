@@ -3,6 +3,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { getFromTheme } from './utils'
 import './index.css'
 import themes from './config/themes.json'
+import Game from './game'
 
 const App = () => {
 
@@ -26,12 +27,11 @@ const App = () => {
     }
   `
 
-
   return (
     <ThemeProvider theme={themes[themeName]}>
       <React.Fragment>
         <GlobalStyle/>
-
+          <Game toggleTheme={toggleTheme}/>
       </React.Fragment>
     </ThemeProvider>
   );
