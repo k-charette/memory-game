@@ -1,5 +1,4 @@
-import { merge, init } from 'ramda';
-
+import { merge } from 'ramda';
 import levels from '../config/levels'
 
 export const NEW_LEVEL = 'level/new'
