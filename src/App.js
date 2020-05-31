@@ -6,9 +6,7 @@ import themes from './config/themes.json'
 import Game from './game'
 
 const App = () => {
-
-  const [themeName, toggleTheme] = useTheme('darkTheme')
-
+  
   const useTheme = (defaultTheme) => {
     const [themeName, setThemeName] = useState(defaultTheme)
 
@@ -18,6 +16,9 @@ const App = () => {
 
     return [themeName, switchTheme]
   }
+
+  const [themeName, toggleTheme] = useTheme('darkTheme')
+
 
   const GlobalStyle = createGlobalStyle`
     body {

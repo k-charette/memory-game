@@ -30,14 +30,34 @@ const Game = ({ toggleTheme }) => {
     const updateLevel = (shouldReset) => {
         dispatch({ type: FIELD_HIDE })
         setTimeout(dispatch, 500, { type: shouldReset ? RESET_LEVEL : NEW_LEVEL, level: level + 1  })
-
     }
 
     return (
-        <div>
-
-        </div>
+        <GameView>
+            <GameFieldView {...levelConfig}>
+                <SwitchView>
+                        <div>
+                            Level: {level}
+                        </div>
+                        <div>
+                            Theme mode: <Switch onClick={toggleTheme} />
+                        </div>
+                    <Field
+                        {...levelConfig}
+                        levelConfig={levelConfig}
+                        visible={showField}
+                        key={field}
+                        level={level}
+                        field={field}
+                        hiddenCells={hiddenCells}
+                        dispatch={dispatch}
+                        showHidden={showHidden}
+                        updateLevel={updateLevel}
+                    />
+                </SwitchView>
+            </GameFieldView>
+        </GameView>
     )
 }
 
-export default Game
+export default memo(Game)
